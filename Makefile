@@ -54,6 +54,9 @@ rdk_rx62n.bin: rdk_rx62n.elf Makefile
 test-sakura: sakura.bin
 	cp sakura.bin /var/run/media/$(shell whoami)/GR-SAKURA/
 
+test-rdk-rx62n: rdk_rx62n.bin
+	JLinkExe rdk_rx62n.jlink
+
 clean:
 	-rm -f *.elf *.bin *.lst *.map
 	-rm -f r5f563nb.ld gr-sakura.ld r5f562n8.ld
