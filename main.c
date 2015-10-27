@@ -29,6 +29,20 @@ enum {
 	PORTJ = 0x12,
 };
 
+#ifdef RDK_RX62N
+static void clock_setup(void)
+{
+	volatile uint8_t *PORT5_PDR  = (uint8_t *)(PORTx_PDR + PORT5);
+	volatile uint32_t *SCKCR = (uint32_t *)0x00080020;
+
+	// 12 MHz XTAL
+	*PORT5_PDR &= ~(1 << 5); // BCLK
+	*SCKCR = (1 << 24) | (1 << 23) | (0 << 22) | (1 << 16) | (1 << 8);
+	*PORT5_PDR |= 1 << 5; // BCLK
+	*SCKCR &= ~(1 << 23);
+}
+#endif
+
 static void wait(void)
 {
 	int i;
@@ -62,6 +76,10 @@ int main(void)
 	volatile uint8_t *PORTE_PODR = (uint8_t *)(PORTx_PODR + PORTE);
 #endif
 	uint8_t val;
+
+#ifdef RDK_RX62N
+	clock_setup();
+#endif
 
 #ifdef SAKURA
 	*PORTA_PDR = PORTA_LEDS;
