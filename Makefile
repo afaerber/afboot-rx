@@ -10,7 +10,8 @@ LDFLAGS = -Wl,--gc-sections -Wl,-Map,test.map
 LDSCRIPT=gr-sakura.ld
 SYSROOT=/usr/rx-elf/sys-root
 
-BASE_LDSCRIPT=$(SYSROOT)/usr/lib/rx.ld
+#BASE_LDSCRIPT=$(SYSROOT)/usr/lib/rx.ld
+BASE_LDSCRIPT=/usr/rx-elf/lib/rx.ld
 
 r5f563nb.ld: $(BASE_LDSCRIPT) Makefile
 	@sed -e 's|\(ROM[^=]*=[ ]*\)[^,]*\(,[ ]*LENGTH[ ]*=[ ]*\).*$$|\10xfff00000\20x000fffd0 /* 1 MB */|' \
