@@ -55,5 +55,5 @@ test-sakura: sakura.bin
 	cp sakura.bin /var/run/media/$(shell whoami)/GR-SAKURA/
 
 clean:
-	-rm -f *.elf *.bin *.lst
+	-rm -f *.elf *.bin *.lst *.map
 	-rm -f r5f563nb.ld gr-sakura.ld r5f562n8.ld
