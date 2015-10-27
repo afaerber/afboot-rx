@@ -5,7 +5,7 @@ CC=$(CROSS_COMPILE)gcc-5
 OBJCOPY=$(CROSS_COMPILE)objcopy
 OBJDUMP=$(CROSS_COMPILE)objdump
 SIZE=$(CROSS_COMPILE)size
-CFLAGS += -Os -ffunction-sections -fdata-sections -Wl,--build-id=none
+CFLAGS += -Os -Wall -ffunction-sections -fdata-sections -Wl,--build-id=none
 LDFLAGS = -Wl,--gc-sections
 SYSROOT=/usr/rx-elf/sys-root
 
