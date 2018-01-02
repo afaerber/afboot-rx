@@ -55,7 +55,7 @@ test-sakura: sakura.bin
 	cp sakura.bin /var/run/media/$(shell whoami)/GR-SAKURA/
 
 test-rdk-rx62n: rdk_rx62n.bin
-	JLinkExe rdk_rx62n.jlink
+	JLinkExe -device R5F562N8 -if JTAG -speed 2000 -jtagconf -1,-1 -autoconnect 1 -CommanderScript rdk_rx62n.jlink
 
 clean:
 	-rm -f *.elf *.bin *.lst *.map

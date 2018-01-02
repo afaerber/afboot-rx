@@ -1,6 +1,4 @@
-speed 12000
 h
-exec device=RX62N
 loadbin rdk_rx62n.bin, 0xFFF80000
 r
 g
