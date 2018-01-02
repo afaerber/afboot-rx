@@ -36,9 +36,9 @@ static void clock_setup(void)
 	volatile uint32_t *SCKCR = (uint32_t *)0x00080020;
 
 	// 12 MHz XTAL
-	*PORT5_PDR &= ~(1 << 5); // BCLK
+	*PORT5_PDR &= ~(1 << 3); // BCLK
 	*SCKCR = (1 << 24) | (1 << 23) | (0 << 22) | (1 << 16) | (1 << 8);
-	*PORT5_PDR |= 1 << 5; // BCLK
+	*PORT5_PDR |= 1 << 3; // BCLK
 	*SCKCR &= ~(1 << 23);
 }
 #endif
