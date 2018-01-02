@@ -1,0 +1,7 @@
+h
+r
+loadbin lcd_rx63n.bin, 0xFFE00000
+r
+g
+q
+
