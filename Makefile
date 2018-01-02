@@ -1,7 +1,7 @@
 all: sakura.bin rdk_rx62n.bin
 
 CROSS_COMPILE=rx-elf-
-CC=$(CROSS_COMPILE)gcc-5
+CC=$(CROSS_COMPILE)gcc
 OBJCOPY=$(CROSS_COMPILE)objcopy
 OBJDUMP=$(CROSS_COMPILE)objdump
 SIZE=$(CROSS_COMPILE)size
